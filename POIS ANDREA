@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan de Intervención Integral | Dosis de Salud</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #1a1a2e;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .brand-gradient-text {
+            background: linear-gradient(90deg, #8febff, #bc79ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .section-title-icon {
+            width: 32px;
+            height: 32px;
+            stroke-width: 1.5;
+            color: #bc79ff;
+        }
+        .nav-link {
+            transition: all 0.2s ease-in-out;
+            color: #e0e0e0;
+            border: 1px solid #2c2c54;
+            background-color: #252548;
+        }
+        .nav-link:hover {
+            background-color: #1e1e3f;
+            border-color: #8febff;
+        }
+        .nav-link.active {
+            background-color: #570399;
+            color: white;
+            transform: translateX(4px);
+            border-left: 4px solid #8febff;
+            border-color: #570399;
+        }
+        .prose-custom {
+            color: #dcdcdc;
+        }
+        .prose-custom h1, .prose-custom h2, .prose-custom h3 {
+            color: white;
+        }
+        .prose-custom strong {
+            color: #f0f0f0;  
+        }
+        .prose-custom a {
+            color: #8febff;
+        }
+        .prose-custom blockquote {
+            border-left-color: #bc79ff;
+            color: #b0b0b0;
+        }
+        .table-custom {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        .table-custom th, .table-custom td {
+            border: 1px solid #2c2c54;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        .table-custom th {
+            background-color: #252548;
+            color: white;
+            font-weight: 600;
+        }
+        .table-custom td {
+            background-color: #1e1e3f;
+        }
+        .tab-button.active {
+            background-color: #bc79ff;
+            color: #1a1a2e;
+            border-color: #bc79ff;
+        }
+        .bg-brand-dark { background-color: #1a1a2e; }
+        .bg-brand-mid { background-color: #1e1e3f; }
+        .bg-brand-light { background-color: #252548; }
+        .border-brand { border-color: #2c2c54; }
+        #mobile-menu {
+             transition: transform 0.3s ease-in-out;
+        }
+        .day-card {
+            background-color: #252548;
+            border: 1px solid #2c2c54;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .day-card h4 {
+            color: #8febff;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        .meal-item {
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+            border-left: 2px solid #bc79ff;
+        }
+        .meal-time {
+            color: #bc79ff;
+            font-weight: 600;
+        }
+        .exercise-card {
+            background-color: #1e1e3f;
+            border: 1px solid #2c2c54;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        .exercise-card h5 {
+            color: #8febff;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body class="text-gray-300">
+
+    <!-- Header para Móviles -->
+    <header class="lg:hidden bg-brand-mid p-4 flex items-center justify-between shadow-lg sticky top-0 z-20">
+        <div class="flex items-center">
+             <img src="https://i.postimg.cc/PqfbLGxz/Logo-para-Redes-Sociales-2-png.png" alt="Logo Dosis de Salud" class="w-12 h-12 rounded-full" onerror="this.onerror=null;this.src='https://placehold.co/100x100/1a1a2e/8febff?text=DS';">
+        </div>
+        <button id="mobile-menu-button" class="text-white focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+    </header>
+
+    <div class="flex min-h-screen">
+        <!-- Barra de Navegación Lateral -->
+        <aside id="mobile-menu" class="w-64 bg-brand-mid p-6 fixed h-full shadow-2xl z-10 transform -translate-x-full lg:translate-x-0 lg:block overflow-y-auto">
+            <div class="mb-8">
+                 <img src="https://i.postimg.cc/PqfbLGxz/Logo-para-Redes-Sociales-2-png.png" alt="Logo Dosis de Salud" class="w-full h-auto rounded-full" onerror="this.onerror=null;this.src='https://placehold.co/200x200/1a1a2e/8febff?text=DS';">
+            </div>
+            <nav id="nav-menu">
+                <a href="#bienvenida" class="nav-link block py-2.5 px-4 rounded mb-2 font-semibold">Bienvenida</a>
+                <a href="#evaluacion" class="nav-link block py-2.5 px-4 rounded mb-2 font-semibold">Evaluación Inicial</a>
+                <a href="#objetivos" class="nav-link block py-2.5 px-4 rounded mb-2 font-semibold">Objetivos</a>
+                <a href="#metabolismo" class="nav-link block py-2.5 px-4 rounded mb-2 font-semibold">Balance Energético</a>
+                <a href="#calorico" class="nav-link block py-2.5 px-4 rounded mb-2 font-semibold">Ajuste Calórico</a>
+                <a href="#macros" class="nav-link block py-2.5 px-4 rounded mb-2 font-semibold">Macronutrientes</a>
+                <a href="#nutricion" class="nav-link block py-2.5 px-4 rounded mb-2 font-semibold">Intervención Nutricional</a>
+                <a href="#flexibilidad" class="nav-link block py-2.5 px-4 rounded mb-2 font-semibold">Flexibilidad Nutricional</a>
+                <a href="#plan-semanal" class="nav-link block py-2.5 px-4 rounded mb-2 font-semibold">Plan Semanal</a>
+                <a href="#adherencia" class="nav-link block py-2.5 px-4 rounded mb-2 font-semibold">Estrategias de Adherencia</a>
+                <a href="#recomendaciones" class="nav-link block py-2.5 px-4 rounded mb-2 font-semibold">Recomendaciones Clave</a>
+                <a href="#suplementacion" class="nav-link block py-2.5 px-4 rounded mb-2 font-semibold">Suplementación</a>
+                <a href="#ejercicio" class="nav-link block py-2.5 px-4 rounded mb-2 font-semibold">Ejercicio Físico</a>
+                <a href="#habitos" class="nav-link block py-2.5 px-4 rounded mb-2 font-semibold">Hábitos de Vida</a>
+                <a href="#seguimiento" class="nav-link block py-2.5 px-4 rounded mb-2 font-semibold">Seguimiento</a>
+                <a href="#cierre" class="nav-link block py-2.5 px-4 rounded mb-2 font-semibold">Resumen y Cierre</a>
+            </nav>
+        </aside>
+
+        <!-- Contenido Principal -->
+        <main class="flex-1 lg:ml-64 p-6 md:p-10">
+            <div class="max-w-4xl mx-auto prose-custom">
+
+                <!-- Bienvenida -->
+                <section id="bienvenida" class="mb-16">
+                    <h1 class="text-4xl md:text-5xl font-bold text-white leading-tight">Plan de Intervención Integral</h1>
+                    <p class="text-xl text-gray-400 mt-2">Preparado para: <span class="brand-gradient-text font-bold">Andrea Caro Bustos</span></p>
+                    <div class="mt-6 border-l-4 border-cyan-400 pl-4">
+                        <p class="text-lg">Estimada Andrea,</p>
+                        <p class="mt-3">Quiero que veas esto como una inversión en tu salud a largo plazo, una hoja de ruta para construir la versión más fuerte y vital de ti misma. Este documento es tu guía personal y detallada. Ha sido diseñado para ser tu compañero, educarte y empoderarte en cada paso de tu transformación.</p>
+                        <p class="mt-3">Tu objetivo de recomposición corporal es el norte de este plan y cada una de las siguientes secciones está diseñada para llevarte directamente hacia él. ¡Comencemos este emocionante viaje!</p>
+                    </div>
+                </section>
+
+                <!-- 1. Evaluación Inicial -->
+                <section id="evaluacion" class="mb-16">
+                    <div class="flex items-center gap-4 mb-6">
+                        <svg class="section-title-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                        <h2 class="text-3xl font-bold text-white">1. Evaluación Inicial y Punto de Partida</h2>
+                    </div>
+                    <p class="mb-4">Tras un análisis detallado de tu historial, tenemos una imagen clara de nuestro punto de partida. Eres una mujer de 36 años, con un peso de 61 kg y una talla de 156 cm, lo que nos sitúa con un IMC de 25.1. Tu objetivo principal es claro y alcanzable: reducir tu porcentaje de grasa corporal (actualmente en 33.8%) y aumentar tu masa muscular esquelética (actualmente en 20.6 kg).</p>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 text-center">
+                        <div class="bg-brand-light p-4 rounded-lg shadow-lg"><div class="text-3xl font-bold brand-gradient-text">36</div><div class="text-sm">Años</div></div>
+                        <div class="bg-brand-light p-4 rounded-lg shadow-lg"><div class="text-3xl font-bold brand-gradient-text">61 kg</div><div class="text-sm">Peso</div></div>
+                        <div class="bg-brand-light p-4 rounded-lg shadow-lg"><div class="text-3xl font-bold brand-gradient-text">1.56 m</div><div class="text-sm">Talla</div></div>
+                        <div class="bg-brand-light p-4 rounded-lg shadow-lg"><div class="text-3xl font-bold brand-gradient-text">25.1</div><div class="text-sm">IMC</div></div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6 text-center">
+                        <div class="bg-brand-light p-4 rounded-lg shadow-lg"><div class="text-3xl font-bold brand-gradient-text">33.8%</div><div class="text-sm">Grasa Corporal</div></div>
+                        <div class="bg-brand-light p-4 rounded-lg shadow-lg"><div class="text-3xl font-bold brand-gradient-text">20.6 kg</div><div class="text-sm">Masa Muscular Esquelética</div></div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mt-6">
+                        <div class="bg-brand-light rounded-lg p-6 shadow-lg">
+                           <h3 class="font-bold text-xl text-white mb-3">Fortalezas a Potenciar</h3>
+                           <ul class="list-disc list-inside mt-2 space-y-2">
+                               <li><b>Disciplina del Sueño:</b> Tus 7 horas de sueño ininterrumpido son un pilar fundamental para la recuperación muscular, la regulación hormonal y el control del apetito. ¡Esto es oro puro!</li>
+                               <li><b>Bajo Nivel de Estrés:</b> Mantener un nivel de estrés bajo (2/10) es una ventaja metabólica increíble que favorecerá todos nuestros esfuerzos.</li>
+                               <li><b>Ausencia de Hábitos Nocivos:</b> El no consumir alcohol ni tabaco nos da una base de salud limpia sobre la cual construir.</li>
+                               <li><b>Consistencia en el Ejercicio:</b> Ya tienes el hábito de ir al gimnasio 2-3 veces por semana, lo que demuestra compromiso y constancia.</li>
+                           </ul>
+                        </div>
+                        <div class="bg-brand-light rounded-lg p-6 shadow-lg">
+                           <h3 class="font-bold text-xl text-white mb-3">Áreas de Oportunidad para la Mejora</h3>
+                           <ul class="list-disc list-inside mt-2 space-y-2">
+                               <li><b>Calidad Nutricional:</b> Tu dieta actual, aunque estructurada en comidas, muestra un bajo consumo de proteínas, frutas y vegetales y una dependencia de carbohidratos refinados en porciones grandes. La cena a las 22:00h es un punto a optimizar.</li>
+                               <li><b>Composición Corporal:</b> El porcentaje de grasa corporal y la grasa visceral están por encima de los rangos saludables, mientras que la masa muscular esquelética tiene un gran potencial de desarrollo. Esto es precisamente en lo que nos enfocaremos.</li>
+                               <li><b>Entrenamiento:</b> Tu rutina actual combina aeróbicos y fuerza sin una estructura definida, lo que puede limitar los resultados para la ganancia muscular.</li>
+                           </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. Objetivos del Plan -->
+                <section id="objetivos" class="mb-16">
+                    <div class="flex items-center gap-4 mb-6">
+                        <svg class="section-title-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h15.75c.621 0 1.125.504 1.125 1.125v6.75C21 20.496 20.496 21 19.875 21H4.125A1.125 1.125 0 013 19.875v-6.75zM12 3c-4.97 0-9 4.03-9 9v.125A1.125 1.125 0 014.125 12H12v9.375m0-9.375a9 9 0 019 9v.125A1.125 1.125 0 0119.875 12H12V3z" /></svg>
+                        <h2 class="text-3xl font-bold text-white">2. Objetivos del Plan: Tu Hoja de Ruta Personalizada</h2>
+                    </div>
+                    
+                    <div class="bg-brand-light rounded-lg p-6 shadow-lg mb-6">
+                        <h3 class="font-bold text-xl text-white mb-3">Objetivo General</h3>
+                        <p>Lograr una recomposición corporal sostenible, mejorando la relación músculo-grasa para optimizar tu salud metabólica, tu rendimiento físico y tu bienestar general.</p>
+                    </div>
+
+                    <h3 class="font-bold text-2xl text-white mb-4">Objetivos Específicos (SMART)</h3>
+                    
+                    <div class="bg-brand-light rounded-lg p-6 shadow-lg mb-4">
+                        <h4 class="font-bold text-lg text-cyan-400 mb-3">A Corto Plazo (1 Mes)</h4>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li><b>Nutrición:</b> Lograr una adherencia del 90% al plan de alimentación semanal, incluyendo la preparación de comidas.</li>
+                            <li><b>Ejercicio:</b> Completar el 100% de las sesiones de entrenamiento de fuerza programadas (3 por semana).</li>
+                            <li><b>Hábito:</b> Aumentar el consumo de proteínas, y de vegetales a un mínimo de dos porciones en almuerzo y cena.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-brand-light rounded-lg p-6 shadow-lg mb-4">
+                        <h4 class="font-bold text-lg text-cyan-400 mb-3">A Mediano Plazo (3 Meses)</h4>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li><b>Composición Corporal:</b> Reducir el porcentaje de grasa corporal en un 2-4% (ej. de 33.8% a ~30-31.8%).</li>
+                            <li><b>Masa Muscular:</b> Incrementar la masa muscular esquelética en 0.5-1 kg.</li>
+                            <li><b>Rendimiento:</b> Aumentar la fuerza en los ejercicios básicos del programa (ej. un 10-15% más de peso levantado).</li>
+                            <li><b>Medidas:</b> Reducir la circunferencia de cintura en 3-5 cm.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-brand-light rounded-lg p-6 shadow-lg">
+                        <h4 class="font-bold text-lg text-cyan-400 mb-3">A Largo Plazo (6+ Meses)</h4>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li><b>Composición Corporal:</b> Alcanzar un porcentaje de grasa corporal dentro del rango saludable para tu edad y sexo (idealmente entre 23-26%).</li>
+                            <li><b>Salud Metabólica:</b> Mantener los niveles de colesterol y glucosa en rangos óptimos y reducir la grasa visceral.</li>
+                            <li><b>Autonomía:</b> Haber interiorizado los principios de nutrición y entrenamiento para tomar decisiones informadas y mantener tus resultados de por vida.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- 3. Balance Energético -->
+                <section id="metabolismo" class="mb-16">
+                    <div class="flex items-center gap-4 mb-6">
+                        <svg class="section-title-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
+                        <h2 class="text-3xl font-bold text-white">3. Tu Balance Energético: Conociendo tu Metabolismo</h2>
+                    </div>
+                    <p class="mb-4">Para crear un plan preciso, primero debemos entender cuánta energía necesita tu cuerpo. A continuación, calculamos tu Tasa Metabólica Basal (TMB), que es la energía que tu cuerpo gasta en reposo, y tu Gasto Energético Total (GET), que incluye tu actividad física.</p>
+                    
+                    <div class="bg-brand-light rounded-lg p-6 shadow-lg text-center">
+                        <p class="text-lg mb-2">Considerando tu nivel de actividad física actual (entrenando 2-3 veces por semana):</p>
+                        <div class="text-5xl font-bold brand-gradient-text my-4">1821 kcal/día</div>
+                        <p class="text-sm text-gray-400">Gasto Energético Total (GET) promedio</p>
+                        <p class="mt-4">Este número representa tu punto de equilibrio calórico; si consumes esta cantidad de calorías, mantendrás tu peso actual.</p>
+                    </div>
+                </section>
+
+                <!-- 4. Ajuste Calórico -->
+                <section id="calorico" class="mb-16">
+                    <div class="flex items-center gap-4 mb-6">
+                        <svg class="section-title-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971z" /></svg>
+                        <h2 class="text-3xl font-bold text-white">4. Ajuste Calórico Estratégico para tu Meta</h2>
+                    </div>
+                    <p class="mb-4">Dado que tu objetivo principal es la recomposición corporal, con un enfoque en la reducción de grasa mientras construimos músculo, estableceremos un déficit calórico moderado y controlado. Un déficit demasiado agresivo podría comprometer la masa muscular, que es precisamente lo que queremos aumentar.</p>
+                    
+                    <div class="bg-brand-light rounded-lg p-6 shadow-lg text-center">
+                        <h3 class="font-bold text-xl text-white mb-3">Objetivo Calórico Diario</h3>
+                        <div class="text-5xl font-bold brand-gradient-text my-4">1550-1600 kcal</div>
+                        <p class="text-sm text-gray-400 mb-4">Déficit de aproximadamente 200-300 kcal respecto a tu GET</p>
+                        <p>Esta estrategia es ideal para promover la oxidación de grasas de manera constante, minimizando el riesgo de pérdida muscular y asegurando que tengas la energía suficiente para rendir al máximo en tus entrenamientos y en tu día a día.</p>
+                    </div>
+                </section>
+
+                <!-- 5. Macronutrientes -->
+                <section id="macros" class="mb-16">
+                    <div class="flex items-center gap-4 mb-6">
+                        <svg class="section-title-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z" /><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z" /></svg>
+                        <h2 class="text-3xl font-bold text-white">5. Distribución de Macronutrientes: Los Pilares de tu Nutrición</h2>
+                    </div>
+                    <p class="mb-4">No todas las calorías son iguales. Su origen (proteínas, grasas o carbohidratos) determina la respuesta de tu cuerpo. Seguiremos un método jerárquico que prioriza tus necesidades fisiológicas para la recomposición corporal.</p>
+                    
+                    <div class="grid md:grid-cols-3 gap-4 mb-6">
+                        <div class="bg-brand-light rounded-lg p-6 shadow-lg">
+                            <h4 class="font-bold text-lg text-cyan-400 mb-2">Paso 1: Proteínas</h4>
+                            <p class="text-sm mb-2"><span class="text-purple-400 font-bold">Prioridad #1</span></p>
+                            <p class="text-sm">Aportan los "ladrillos" (aminoácidos) para construir y reparar el tejido muscular. Son cruciales para la saciedad y tienen un mayor efecto térmico (quemas más calorías al digerirlas).</p>
+                        </div>
+                        <div class="bg-brand-light rounded-lg p-6 shadow-lg">
+                            <h4 class="font-bold text-lg text-cyan-400 mb-2">Paso 2: Grasas</h4>
+                            <p class="text-sm mb-2"><span class="text-purple-400 font-bold">Prioridad #2</span></p>
+                            <p class="text-sm">Esenciales para la producción hormonal, la salud cerebral y la absorción de vitaminas liposolubles. Son una fuente de energía densa y sostenida.</p>
+                        </div>
+                        <div class="bg-brand-light rounded-lg p-6 shadow-lg">
+                            <h4 class="font-bold text-lg text-cyan-400 mb-2">Paso 3: Carbohidratos</h4>
+                            <p class="text-sm mb-2"><span class="text-purple-400 font-bold">Energía para el Rendimiento</span></p>
+                            <p class="text-sm">Son la principal fuente de combustible para tus músculos durante el entrenamiento de alta intensidad y para el funcionamiento cerebral. Los ajustamos para llenar el resto de tus necesidades energéticas.</p>
+                        </div>
+                    </div>
+
+                    <h3 class="font-bold text-2xl text-white mb-4">Resumen Final de tu Distribución Diaria</h3>
+                    <table class="table-custom">
+                        <thead>
+                            <tr>
+                                <th>Macronutriente</th>
+                                <th>Gramos diarios</th>
+                                <th>Calorías</th>
+                                <th>Porcentaje del Total Calórico</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><b>Proteína</b></td>
+                                <td>134.2 g</td>
+                                <td>537 kcal</td>
+                                <td>34.6%</td>
+                            </tr>
+                            <tr>
+                                <td><b>Grasas</b></td>
+                                <td>60.3 g</td>
+                                <td>543 kcal</td>
+                                <td>35.0%</td>
+                            </tr>
+                            <tr>
+                                <td><b>Carbohidratos</b></td>
+                                <td>117.7 g</td>
+                                <td>471 kcal</td>
+                                <td>30.4%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="mt-4 text-sm italic">Esta distribución está científicamente diseñada para maximizar la síntesis de proteínas musculares, mantener un entorno hormonal óptimo y proporcionarte la energía exacta que necesitas para entrenar con intensidad y recuperarte eficazmente.</p>
+                </section>
+
+                <!-- 6. Intervención Nutricional -->
+                <section id="nutricion" class="mb-16">
+                    <div class="flex items-center gap-4 mb-6">
+                        <svg class="section-title-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.87c1.355 0 2.697.055 4.024.165C17.155 8.51 18 9.473 18 10.608v2.513m-3-4.87v-1.5m-6 1.5v-1.5m12 9.75l-1.5.75a3.354 3.354 0 01-3 0 3.354 3.354 0 00-3 0 3.354 3.354 0 01-3 0 3.354 3.354 0 00-3 0 3.354 3.354 0 01-3 0L3 16.5m15-3.38a48.474 48.474 0 00-6-.37c-2.032 0-4.034.125-6 .37m12 0c.39.049.777.102 1.163.16 1.07.16 1.837 1.094 1.837 2.175v5.17c0 .62-.504 1.124-1.125 1.124H4.125A1.125 1.125 0 013 20.625v-5.17c0-1.08.768-2.014 1.837-2.174A47.78 47.78 0 016 13.12M12.265 3.11a.375.375 0 11-.53 0L12 2.845l.265.265zm-3 0a.375.375 0 11-.53 0L9 2.845l.265.265zm6 0a.375.375 0 11-.53 0L15 2.845l.265.265z" /></svg>
+                        <h2 class="text-3xl font-bold text-white">6. Intervención Nutricional: Alimenta tu Transformación</h2>
+                    </div>
+                </section>
+
+                <!-- 6.1 Flexibilidad Nutricional -->
+                <section id="flexibilidad" class="mb-16">
+                    <h3 class="font-bold text-2xl text-white mb-4">6.1. Flexibilidad Nutricional: Cómo Hacer Tuyo este Plan</h3>
+                    <p class="mb-4">Es fundamental que entiendas que el siguiente menú semanal no es una regla estricta e inamovible. Es una plantilla, una guía diseñada para mostrarte cómo se ven las porciones y las combinaciones ideales para tus objetivos. El éxito a largo plazo depende de la flexibilidad y de que disfrutes tu alimentación.</p>
+                    <p class="mb-6">La clave es simple: intercambia alimentos del mismo grupo. Si reemplazas una fuente de proteína por otra de proteína, o un carbohidrato por otro carbohidrato, mantendrás el balance de macronutrientes casi intacto.</p>
+                    
+                    <h4 class="font-bold text-xl text-white mb-4">Guía Rápida de Intercambios</h4>
+                    <table class="table-custom">
+                        <thead>
+                            <tr>
+                                <th>Grupo</th>
+                                <th>Porción de Referencia en el Plan</th>
+                                <th>Puede ser Intercambiada por...</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><b>PROTEÍNAS</b></td>
+                                <td>1 porción del tamaño de la palma (pollo, carne, pescado)</td>
+                                <td>1 porción similar de otra carne magra • 4 huevos enteros • 1 taza de lentejas o porotos cocidos • 1 porción grande (150g) de tofu o quesillo</td>
+                            </tr>
+                            <tr>
+                                <td><b>CARBOHIDRATOS</b></td>
+                                <td>½ taza de arroz/quinoa cocido</td>
+                                <td>1 papa mediana (del tamaño de tu puño) • 1 rebanada de pan integral • ½ taza de choclo o arvejas • ¾ taza de zapallo o camote en cubos</td>
+                            </tr>
+                            <tr>
+                                <td><b>GRASAS</b></td>
+                                <td>¼ de palta</td>
+                                <td>1 cucharada de aceite de oliva o de palta • 1 puñado pequeño (15-20) de almendras o nueces • 1 cucharada colmada de mantequilla de maní</td>
+                            </tr>
+                            <tr>
+                                <td><b>VEGETALES</b></td>
+                                <td>Cualquier porción de vegetales de hoja verde (lechuga, espinaca) o fibrosos (brócoli, coliflor, pepino)</td>
+                                <td>¡Casi cualquier otro vegetal similar! Siéntete libre de variar los colores y tipos de ensaladas.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="bg-brand-light rounded-lg p-6 shadow-lg mt-6">
+                        <h4 class="font-bold text-lg text-cyan-400 mb-2">Ejemplo Práctico</h4>
+                        <p>El almuerzo del miércoles indica "carne de res con arroz integral". Si ese día no tienes ganas de carne, puedes cambiarla por una porción del tamaño de tu palma de pechuga de pollo. Si no tienes arroz integral, puedes usar ½ taza de quinoa, 1 papa mediana al horno o incluso 1 taza de lentejas (que aportará proteína y carbohidratos).</p>
+                        <p class="mt-3 font-semibold">¡Usa tu creatividad! La idea es que aprendas a construir tus propios platos siguiendo esta estructura.</p>
+                    </div>
+                </section>
+
+                <!-- 6.2 Plan de Alimentación Semanal -->
+                <section id="plan-semanal" class="mb-16">
+                    <h3 class="font-bold text-2xl text-white mb-4">6.2. Plan de Alimentación Semanal COMPLETO (Lunes a Domingo)</h3>
+                    <p class="mb-4">Este plan es una guía precisa. Las cantidades son en crudo/seco a menos que se especifique lo contrario. Siéntete libre de usar hierbas y especias sin calorías para dar sabor.</p>
+                    
+                    <div class="bg-brand-light rounded-lg p-6 shadow-lg mb-6">
+                        <h4 class="font-bold text-lg text-white mb-3">Recordatorio General</h4>
+                        <ul class="list-disc list-inside space-y-1 text-sm">
+                            <li>1 taza = 240 ml (taza de medida estándar)</li>
+                            <li>1 cucharada = 15 ml</li>
+                            <li>1 cucharadita = 5 ml</li>
+                            <li>"Un puñado" se refiere a lo que cabe en la palma de tu mano</li>
+                            <li>Las proteínas como pollo, carne o pescado, considera que una porción del tamaño de la palma de tu mano (sin los dedos) son aproximadamente 120-150 gramos</li>
+                        </ul>
+                    </div>
+
+                    <!-- Lunes -->
+                    <div class="day-card">
+                        <h4>Lunes (Día de Entrenamiento)</h4>
+                        <div class="meal-item">
+                            <p class="meal-time">Desayuno (7:30 AM):</p>
+                            <p>Omelette con 4 huevos enteros, un gran puñado de espinacas y 2 cucharadas de queso bajo en grasa (ricota, cottage). Acompañado de 1 rebanada de pan integral con 1/2 palta pequeña. Café o té sin azúcar.</p>
+                        </div>
+                        <div class="meal-item">
+                            <p class="meal-time">Colación AM (10:30 AM):</p>
+                            <p>¾ de taza de yogurt griego natural sin azúcar con ¼ de taza de arándanos.</p>
+                        </div>
+                        <div class="meal-item">
+                            <p class="meal-time">Almuerzo (1:30 PM):</p>
+                            <p>Una porción de pollo a la plancha. Ensalada grande con mix de hojas verdes, ½ taza de pepino, ½ taza de tomate, y ½ taza (cocida) de quinoa. Aderezo: 1 cda de aceite de oliva, limón y sal.</p>
+                        </div>
+                        <div class="meal-item">
+                            <p class="meal-time">Colación PM (4:30 PM - Pre-entreno):</p>
+                            <p>1 manzana pequeña con 1 cda colmada de mantequilla de maní/almendra.</p>
+                        </div>
+                        <div class="meal-item">
+                            <p class="meal-time">Cena (8:00 PM - Post-entreno):</p>
+                            <p>Una porción grande de salmón al horno, con 6-8 espárragos y ½ taza de zapallo asado en cubos.</p>
+                        </div>
+                        <p class="text-sm text-gray-400 mt-3"><b>Resumen Diario:</b> ~1595 kcal | P: 140g | G: 72g | C: 103g</p>
+                    </div>
+
+                    <!-- Martes -->
+                    <div class="day-card">
+                        <h4>Martes (Día de Descanso Activo)</h4>
+                        <div class="meal-item">
+                            <p class="meal-time">Desayuno (7:30 AM):</p>
+                            <p>Batido con 1 scoop de proteína, ¾ de taza de leche (de preferencia), ½ plátano y 1 cda de chía.</p>
+                        </div>
+                        <div class="meal-item">
+                            <p class="meal-time">Colación AM (10:30 AM):</p>
+                            <p>2 tortitas de arroz integral con ¼ de taza de queso cottage o ricotta.</p>
+                        </div>
+                        <div class="meal-item">
+                            <p class="meal-time">Almuerzo (1:30 PM):</p>
+                            <p>1 taza (cocidas) de lentejas guisadas con verduras. Acompañado de una porción de pavo molido.</p>
+                        </div>
+                        <div class="meal-item">
+                            <p class="meal-time">Colación PM (4:30 PM):</p>
+                            <p>Un puñado (20-24) de almendras.</p>
+                        </div>
+                        <div class="meal-item">
+                            <p class="meal-time">Cena (8:00 PM):</p>
+                            <p>Ensalada "Buddha Bowl": base de lechugas, una porción de tofu firme (o queso fresco), 1 taza de brócoli, ½ taza de edamames (o arvejas), y ¼ de palta. Aderezo de tahini y limón.</p>
+                        </div>
+                        <p class="text-sm text-gray-400 mt-3"><b>Resumen Diario:</b> ~1540 kcal | P: 132g | G: 61g | C: 115g</p>
+                    </div>
+
+                    <!-- Miércoles -->
+                    <div class="day-card">
+                        <h4>Miércoles (Día de Entrenamiento)</h4>
+                        <div class="meal-item">
+                            <p class="meal-time">Desayuno (7:30 AM):</p>
+                            <p>½ taza (en seco) de avena cocida, mezclada con 1 scoop de proteína, canela y ½ taza de berries.</p>
+                        </div>
+                        <div class="meal-item">
+                            <p class="meal-time">Colación AM (10:30 AM):</p>
+                            <p>1 huevo duro y un puñado de tomates cherry.</p>
+                        </div>
+                        <div class="meal-item">
+                            <p class="meal-time">Almuerzo (1:30 PM):</p>
+                            <p>Una porción de carne de res magra, con 1 taza de pimientos salteados, ¼ de palta y ½ taza (cocido) de arroz integral.</p>
+                        </div>
+                        <div class="meal-item">
+                            <p class="meal-time">Colación PM (4:30 PM - Pre-entreno):</p>
+                            <p>1 pera/manzana y ¾ de taza de yogurt griego con 1 cda de chía.</p>
+                        </div>
+                        <div class="meal-item">
+                            <p class="meal-time">Cena (8:00 PM - Post-entreno):</p>
+                            <p>Una porción grande de merluza (o pollo) al vapor con limón, con puré de coliflor (1½ taza) y ¾ de taza de arvejas.</p>
+                        </div>
+                        <p class="text-sm text-gray-400 mt-3"><b>Resumen Diario:</b> ~1690 kcal | P: 138g | G: 72g | C: 123g</p>
+                    </div>
+
+                    <!-- Jueves -->
+                    <div class="day-card">
+                        <h4>Jueves (Día de Descanso Activo)</h4>
+                        <div class="meal-item">
+                            <p class="meal-time">Desayuno (7:30 AM):</p>
+                            <p>2 rebanadas de pan integral tostado con ½ taza de quesillo o ricotta, 1 cdta de miel y 1 cda de nueces.</p>
+                        </div>
+                        <div class="meal-item">
+                            <p class="meal-time">Colación AM (10:30 AM):</p>
+                            <p>Bastones de apio y zanahoria (1 taza) con 2 cdas colmadas de hummus.</p>
+                        </div>
+                        <div class="meal-item">
+                            <p class="meal-time">Almuerzo (1:30 PM):</p>
+                            <p>Charquicán de pollo. Servir con 1-2 huevos cocidos.</p>
+                        </div>
+                        <div class="meal-item">
+                            <p class="meal-time">Colación PM (4:30 PM):</p>
+                            <p>1 taza de melón o sandía en cubos con yogurt.</p>
+                        </div>
+                        <div class="meal-item">
+                            <p class="meal-time">Cena (8:00 PM):</p>
+                            <p>Crema de zapallo casera (1 tazón grande) con una porción de pollo desmenuzado. Acompañar con ½ palta.</p>
+                        </div>
+                        <p class="text-sm text-gray-400 mt-3"><b>Resumen Diario:</b> ~1620 kcal | P: 135g | G: 68g | C: 120g</p>
+                    </div>
+
+                    <!-- Viernes -->
+                    <div class="day-card">
+                        <h4>Viernes (Día de Entrenamiento)</h4>
+                        <div class="meal-item">
+                            <p class="meal-time">Desayuno (7:30 AM):</p>
+                            <p>"Mugcake" proteico (receta previa). Topping de ¼ de taza de frutos rojos. Café o té sin azúcar.</p>
+                        </div>
+                        <div class="meal-item">
+                            <p class="meal-time">Colación AM (10:30 AM):</p>
+                            <p>Yogurt griego + 1 cda de chía.</p>
+                        </div>
+                        <div class="meal-item">
+                            <p class="meal-time">Almuerzo (1:30 PM):</p>
+                            <p>Bowl de atún: 1 lata de atún al agua, mezclado con ½ taza lechuga, ½ taza de choclo, ½ taza de porotos negros, cilantro y limón.</p>
+                        </div>
+                        <div class="meal-item">
+                            <p class="meal-time">Colación PM (4:30 PM - Pre-entreno):</p>
+                            <p>1 manzana pequeña más un yogurt.</p>
+                        </div>
+                        <div class="meal-item">
+                            <p class="meal-time">Cena (8:00 PM - Post-entreno):</p>
+                            <p>"Fajitas" sin tortilla: una porción de pollo en tiras salteada con pimientos y cebolla. Servir con ¼ de taza de guacamole casero.</p>
+                        </div>
+                        <p class="text-sm text-gray-400 mt-3"><b>Resumen Diario:</b> ~1550 kcal | P: 138g | G: 58g | C: 120g</p>
+                    </div>
+
+                    <!-- Sábado -->
+                    <div class="day-card">
+                        <h4>Sábado (Día de Descanso Activo)</h4>
+                        <div class="meal-item">
+                            <p class="meal-time">Desayuno (9:00 AM):</p>
+                            <p>Panqueques de avena, plátano y proteína (receta previa). Servir con el resto del plátano y 1 cda de chips de chocolate amargo.</p>
+                        </div>
+                        <div class="meal-item">
+                            <p class="meal-time">Almuerzo (2:30 PM):</p>
+                            <p>2 brochetas de pollo y vegetales salteados. Servir con ½ taza (cocido) de cuscús/quinoa.</p>
+                        </div>
+                        <div class="meal-item">
+                            <p class="meal-time">Colación PM (5:30 PM):</p>
+                            <p>Un yogurt con un puñado de maní/almendras o nueces.</p>
+                        </div>
+                        <div class="meal-item">
+                            <p class="meal-time">Cena (8:30 PM):</p>
+                            <p>Pizza con base de coliflor: cubrir con salsa de tomate, ½ taza de queso mozzarella bajo en grasa, 1 taza de champiñones y rúcula fresca.</p>
+                        </div>
+                        <p class="text-sm text-gray-400 mt-3"><b>Resumen Diario:</b> ~1545 kcal | P: 131g | G: 63g | C: 117g</p>
+                    </div>
+
+                    <!-- Domingo -->
+                    <div class="day-card">
+                        <h4>Domingo (Día de Descanso/Preparación)</h4>
+                        <div class="meal-item">
+                            <p class="meal-time">Desayuno (9:00 AM):</p>
+                            <p>Tostadas francesas proteicas: 2 rebanadas de pan integral remojadas en una mezcla de 2 huevos enteros, canela y 1 scoop de proteína. Servir con ½ taza de mix de berries.</p>
+                        </div>
+                        <div class="meal-item">
+                            <p class="meal-time">Almuerzo (2:30 PM):</p>
+                            <p>Pollo asado (una porción grande) con ensalada chilena y 1 taza de papas asadas.</p>
+                        </div>
+                        <div class="meal-item">
+                            <p class="meal-time">Colación PM (5:30 PM):</p>
+                            <p>Gelatina sin azúcar con ½ taza de frutos rojos.</p>
+                        </div>
+                        <div class="meal-item">
+                            <p class="meal-time">Cena (8:30 PM):</p>
+                            <p>Omelette de 3 huevos con 1 taza de champiñones salteados y una ensalada de hojas verdes.</p>
+                        </div>
+                        <p class="text-sm text-gray-400 mt-3"><b>Resumen Diario:</b> ~1460 kcal | P: 129g | G: 54g | C: 118g</p>
+                    </div>
+                </section>
+
+                <!-- 6.3 Estrategias de Adherencia -->
+                <section id="adherencia" class="mb-16">
+                    <h3 class="font-bold text-2xl text-white mb-4">6.3. Estrategias para una Adherencia Exitosa</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-brand-light rounded-lg p-6 shadow-lg">
+                            <h4 class="font-bold text-lg text-cyan-400 mb-2">Preparación Anticipada (Meal Prep)</h4>
+                            <p class="text-sm">Dedica 2-3 horas del domingo para cocinar las bases de la semana: lava y pica vegetales, cocina granos (arroz, quinoa), asa pollo o carne. Esto te ahorrará tiempo y evitará decisiones impulsivas.</p>
+                        </div>
+                        <div class="bg-brand-light rounded-lg p-6 shadow-lg">
+                            <h4 class="font-bold text-lg text-cyan-400 mb-2">Variedad y Rotación</h4>
+                            <p class="text-sm">Este plan es una plantilla. Puedes intercambiar proteínas (pollo por pescado, carne por pavo), vegetales y carbohidratos de similar valor nutricional para no aburrirte.</p>
+                        </div>
+                        <div class="bg-brand-light rounded-lg p-6 shadow-lg">
+                            <h4 class="font-bold text-lg text-cyan-400 mb-2">Horarios Regulares</h4>
+                            <p class="text-sm">Intenta comer a las mismas horas cada día. Esto regula tus hormonas del hambre y la saciedad. Es clave adelantar tu cena a las 8:00-8:30 PM para mejorar la digestión y el sueño.</p>
+                        </div>
+                        <div class="bg-brand-light rounded-lg p-6 shadow-lg">
+                            <h4 class="font-bold text-lg text-cyan-400 mb-2">Flexibilidad Inteligente</h4>
+                            <p class="text-sm">Si tienes un evento social, disfrútalo. Elige la opción más saludable disponible, controla la porción y vuelve al plan en la siguiente comida. Una comida no define tu progreso, la consistencia sí.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 6.4 Recomendaciones Clave -->
+                <section id="recomendaciones" class="mb-16">
+                    <h3 class="font-bold text-2xl text-white mb-4">6.4. Recomendaciones Clave de Alimentación</h3>
+                    <div class="space-y-4">
+                        <div class="bg-brand-light rounded-lg p-5 shadow-lg">
+                            <h4 class="font-bold text-lg text-cyan-400 mb-2">Calidad de Alimentos</h4>
+                            <p>Prioriza alimentos reales y no procesados. La calidad importa tanto como la cantidad.</p>
+                        </div>
+                        <div class="bg-brand-light rounded-lg p-5 shadow-lg">
+                            <h4 class="font-bold text-lg text-cyan-400 mb-2">Ayuno 12-16h (2/semana)</h4>
+                            <p>Para empezar, simplemente asegura un ayuno nocturno de 12 horas todos los días (ej. de 8:30 PM a 8:30 AM). Más adelante, podemos explorar extenderlo a 14-16 horas un par de días a la semana, si te acomoda, para potenciar la sensibilidad a la insulina.</p>
+                        </div>
+                        <div class="bg-brand-light rounded-lg p-5 shadow-lg">
+                            <h4 class="font-bold text-lg text-cyan-400 mb-2">Secuencia de Ingesta</h4>
+                            <p>En almuerzo y cena, comienza comiendo los vegetales y la proteína primero. Esto ayuda a controlar la glucosa en sangre y aumenta la saciedad, haciendo que comas una cantidad más controlada del carbohidrato.</p>
+                        </div>
+                        <div class="bg-brand-light rounded-lg p-5 shadow-lg">
+                            <h4 class="font-bold text-lg text-cyan-400 mb-2">Ritmo de Ingesta</h4>
+                            <p>Come despacio y mastica bien cada bocado. Dale tiempo a tu cerebro (unos 20 minutos) para que registre la señal de saciedad.</p>
+                        </div>
+                        <div class="bg-brand-light rounded-lg p-5 shadow-lg">
+                            <h4 class="font-bold text-lg text-cyan-400 mb-2">Caminata Post-Ingesta</h4>
+                            <p>Una caminata suave de 10-15 minutos después del almuerzo puede mejorar drásticamente la digestión y el control glucémico.</p>
+                        </div>
+                        <div class="bg-brand-light rounded-lg p-5 shadow-lg">
+                            <h4 class="font-bold text-lg text-cyan-400 mb-2">Hidratación</h4>
+                            <p>Mantén tu consumo de 2-2.5 litros de agua al día. Un buen indicador es el color de la orina: debe ser amarillo claro.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 6.5 Suplementación -->
+                <section id="suplementacion" class="mb-16">
+                    <h3 class="font-bold text-2xl text-white mb-4">6.5. Suplementación Estratégica Basada en Evidencia</h3>
+                    <div class="space-y-4">
+                        <div class="bg-brand-light rounded-lg p-5 shadow-lg">
+                            <h4 class="font-bold text-lg text-cyan-400 mb-2">Vitamina D3</h4>
+                            <p><b>Dosis:</b> 800 UI/día con una comida que contenga grasa.</p>
+                            <p class="mt-2"><b>Beneficios:</b> Esencial para la salud ósea, función inmunológica y regulación hormonal. La mayoría de la población tiene deficiencia.</p>
+                        </div>
+                        <div class="bg-brand-light rounded-lg p-5 shadow-lg">
+                            <h4 class="font-bold text-lg text-cyan-400 mb-2">Omega-3 (EPA/DHA)</h4>
+                            <p><b>Dosis:</b> 1-2 g de EPA+DHA combinados al día.</p>
+                            <p class="mt-2"><b>Beneficios:</b> Potente antiinflamatorio, mejora la salud cardiovascular, la función cerebral y puede favorecer la composición corporal.</p>
+                        </div>
+                        <div class="bg-brand-light rounded-lg p-5 shadow-lg">
+                            <h4 class="font-bold text-lg text-cyan-400 mb-2">Magnesio (Glicinato o Citrato)</h4>
+                            <p><b>Dosis:</b> 400 mg por la noche.</p>
+                            <p class="mt-2"><b>Beneficios:</b> Mejora la calidad del sueño, la recuperación muscular, la sensibilidad a la insulina y reduce la sensación de estrés.</p>
+                        </div>
+                        <div class="bg-brand-light rounded-lg p-5 shadow-lg">
+                            <h4 class="font-bold text-lg text-cyan-400 mb-2">Creatina Monohidratada</h4>
+                            <p><b>Dosis:</b> 5 g diarios (disueltos en agua, en cualquier momento del día).</p>
+                            <p class="mt-2"><b>Beneficios:</b> El suplemento más estudiado para mejorar la fuerza, la potencia y la ganancia de masa muscular. Es extremadamente seguro y efectivo.</p>
+                        </div>
+                        <div class="bg-brand-light rounded-lg p-5 shadow-lg">
+                            <h4 class="font-bold text-lg text-cyan-400 mb-2">Proteína en Polvo (Whey o Vegana)</h4>
+                            <p><b>Dosis:</b> 1 porción (25-30g) cuando sea necesario para alcanzar el objetivo proteico diario (como se indica en el plan).</p>
+                            <p class="mt-2"><b>Beneficios:</b> Es una forma conveniente y de alta calidad para asegurar una ingesta óptima de proteínas, especialmente post-entrenamiento o en batidos.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 7. Ejercicio Físico -->
+                <section id="ejercicio" class="mb-16">
+                    <div class="flex items-center gap-4 mb-6">
+                        <svg class="section-title-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" /></svg>
+                        <h2 class="text-3xl font-bold text-white">7. Intervención en Ejercicio Físico: Construyendo tu Fortaleza</h2>
+                    </div>
+                    <p class="mb-6">Tu hábito de ir al gimnasio es excelente. Ahora, vamos a darle una estructura inteligente para maximizar cada minuto que inviertes. Nos enfocaremos en el entrenamiento de fuerza con sobrecarga progresiva, que es el estímulo número uno para construir músculo y elevar tu metabolismo.</p>
+                    
+                    <h3 class="font-bold text-2xl text-white mb-4">Distribución Semanal</h3>
+                    <div class="bg-brand-light rounded-lg p-6 shadow-lg mb-6">
+                        <ul class="space-y-2">
+                            <li><b class="text-cyan-400">Lunes:</b> Entrenamiento de Fuerza (Full Body A)</li>
+                            <li><b class="text-cyan-400">Martes:</b> Descanso Activo (Caminata 30-45 min)</li>
+                            <li><b class="text-cyan-400">Miércoles:</b> Entrenamiento de Fuerza (Full Body B)</li>
+                            <li><b class="text-cyan-400">Jueves:</b> Descanso Activo (Caminata 30-45 min)</li>
+                            <li><b class="text-cyan-400">Viernes:</b> Entrenamiento de Fuerza (Full Body C)</li>
+                            <li><b class="text-cyan-400">Sábado:</b> Descanso Activo (Caminata 30-45 min o actividad recreativa ligera)</li>
+                            <li><b class="text-cyan-400">Domingo:</b> Descanso Total</li>
+                        </ul>
+                    </div>
+
+                    <!-- Rutina Lunes -->
+                    <h3 class="font-bold text-2xl text-white mb-4">Lunes: Rutina Full Body A (Énfasis en Empuje)</h3>
+                    
+                    <div class="bg-brand-light rounded-lg p-5 shadow-lg mb-4">
+                        <h4 class="font-bold text-lg text-white mb-2">1. Calentamiento (5-10 min)</h4>
+                        <p class="text-sm">Círculos de brazos y caderas, sentadillas sin peso (15 reps), rotaciones de torso, 5 minutos de elíptica o bicicleta a ritmo suave.</p>
+                    </div>
+
+                    <h4 class="font-bold text-xl text-white mb-3">2. Ejercicios Principales</h4>
+                    
+                    <div class="exercise-card">
+                        <h5>Ejercicio 1: Goblet Squat (Sentadilla con mancuerna)</h5>
+                        <p class="text-sm mb-2"><b>Series:</b> 3 | <b>Repeticiones:</b> 8-12 | <b>Descanso:</b> 90 segundos</p>
+                        <p class="text-sm"><b>Técnica:</b> Sostén una mancuerna verticalmente contra tu pecho. Baja la cadera como si te sentaras en una silla, manteniendo la espalda recta y el pecho erguido. Rompe el paralelo (cadera más abajo de las rodillas) si tu movilidad lo permite.</p>
+                    </div>
+
+                    <div class="exercise-card">
+                        <h5>Ejercicio 2: Press de Banca con Mancuernas</h5>
+                        <p class="text-sm mb-2"><b>Series:</b> 3 | <b>Repeticiones:</b> 8-12 | <b>Descanso:</b> 90 segundos</p>
+                        <p class="text-sm"><b>Técnica:</b> Acostada en una banca, empuja las mancuernas hacia arriba desde el pecho. Controla la bajada (fase excéntrica) en 2-3 segundos.</p>
+                    </div>
+
+                    <div class="exercise-card">
+                        <h5>Ejercicio 3: Remo con Mancuerna a una mano</h5>
+                        <p class="text-sm mb-2"><b>Series:</b> 3 | <b>Repeticiones:</b> 10-15 por brazo | <b>Descanso:</b> 60 segundos entre brazos</p>
+                        <p class="text-sm"><b>Técnica:</b> Apoya una rodilla y una mano en una banca. Con la espalda recta y paralela al suelo, jala la mancuerna hacia tu cadera, concentrando la fuerza en la espalda.</p>
+                    </div>
+
+                    <div class="exercise-card">
+                        <h5>Ejercicio 4: Press Militar con Mancuernas (Sentada)</h5>
+                        <p class="text-sm mb-2"><b>Series:</b> 3 | <b>Repeticiones:</b> 10-15 | <b>Descanso:</b> 60 segundos</p>
+                        <p class="text-sm"><b>Técnica:</b> Sentada en una banca con respaldo, empuja las mancuernas desde los hombros hacia arriba hasta casi extender los codos por completo.</p>
+                    </div>
+
+                    <div class="exercise-card">
+                        <h5>Ejercicio 5: Plancha Frontal (Plank)</h5>
+                        <p class="text-sm mb-2"><b>Series:</b> 3 | <b>Repeticiones:</b> Mantener la posición 30-60 segundos | <b>Descanso:</b> 45 segundos</p>
+                        <p class="text-sm"><b>Técnica:</b> Mantén el cuerpo en una línea recta desde la cabeza hasta los talones, contrayendo fuertemente el abdomen y los glúteos.</p>
+                    </div>
+
+                    <div class="bg-brand-light rounded-lg p-5 shadow-lg mb-6">
+                        <h4 class="font-bold text-lg text-white mb-2">3. Vuelta a la Calma (5 min)</h4>
+                        <p class="text-sm">Estiramiento de cuádriceps, isquiotibiales y pectoral.</p>
+                    </div>
+
+                    <!-- Rutina Miércoles -->
+                    <h3 class="font-bold text-2xl text-white mb-4">Miércoles: Rutina Full Body B (Énfasis en Tracción)</h3>
+                    
+                    <div class="bg-brand-light rounded-lg p-5 shadow-lg mb-4">
+                        <h4 class="font-bold text-lg text-white mb-2">1. Calentamiento (5-10 min)</h4>
+                        <p class="text-sm">Similar al lunes.</p>
+                    </div>
+
+                    <h4 class="font-bold text-xl text-white mb-3">2. Ejercicios Principales</h4>
+                    
+                    <div class="exercise-card">
+                        <h5>Ejercicio 1: Peso Muerto Rumano con Mancuernas</h5>
+                        <p class="text-sm mb-2"><b>Series:</b> 3 | <b>Repeticiones:</b> 10-15 | <b>Descanso:</b> 90 segundos</p>
+                        <p class="text-sm"><b>Técnica:</b> Con una ligera flexión de rodillas, empuja la cadera hacia atrás, bajando las mancuernas cerca de tus piernas. Siente el estiramiento en los isquiotibiales y vuelve a la posición inicial contrayendo los glúteos.</p>
+                    </div>
+
+                    <div class="exercise-card">
+                        <h5>Ejercicio 2: Jalón al Pecho (Lat Pulldown) en máquina</h5>
+                        <p class="text-sm mb-2"><b>Series:</b> 3 | <b>Repeticiones:</b> 8-12 | <b>Descanso:</b> 90 segundos</p>
+                        <p class="text-sm"><b>Técnica:</b> Con un agarre más ancho que tus hombros, jala la barra hacia la parte superior de tu pecho, inclinándote ligeramente hacia atrás y apretando los omóplatos.</p>
+                    </div>
+
+                    <div class="exercise-card">
+                        <h5>Ejercicio 3: Zancadas (Lunges) con Mancuernas</h5>
+                        <p class="text-sm mb-2"><b>Series:</b> 3 | <b>Repeticiones:</b> 8-12 por pierna | <b>Descanso:</b> 60 segundos</p>
+                        <p class="text-sm"><b>Técnica:</b> Da un paso hacia adelante y baja la rodilla de atrás hasta casi tocar el suelo, formando ángulos de 90 grados con ambas piernas. Empuja con la pierna delantera para volver.</p>
+                    </div>
+
+                    <div class="exercise-card">
+                        <h5>Ejercicio 4: Elevaciones Laterales con Mancuernas</h5>
+                        <p class="text-sm mb-2"><b>Series:</b> 3 | <b>Repeticiones:</b> 12-18 | <b>Descanso:</b> 60 segundos</p>
+                        <p class="text-sm"><b>Técnica:</b> Con una ligera flexión de codos, eleva las mancuernas hacia los lados hasta la altura de los hombros. Controla el movimiento en todo momento, sin impulsos.</p>
+                    </div>
+
+                    <div class="exercise-card">
+                        <h5>Ejercicio 5: Elevación de Piernas Colgada o en silla romana</h5>
+                        <p class="text-sm mb-2"><b>Series:</b> 3 | <b>Repeticiones:</b> 10-15 | <b>Descanso:</b> 60 segundos</p>
+                        <p class="text-sm"><b>Técnica:</b> Contrae el abdomen para elevar las rodillas hacia el pecho de forma controlada.</p>
+                    </div>
+
+                    <div class="bg-brand-light rounded-lg p-5 shadow-lg mb-6">
+                        <h4 class="font-bold text-lg text-white mb-2">3. Vuelta a la Calma (5 min)</h4>
+                        <p class="text-sm">Estiramiento de espalda baja, glúteos y hombros.</p>
+                    </div>
+
+                    <!-- Rutina Viernes -->
+                    <h3 class="font-bold text-2xl text-white mb-4">Viernes: Rutina Full Body C (Circuito Metabólico)</h3>
+                    
+                    <div class="bg-brand-light rounded-lg p-5 shadow-lg mb-4">
+                        <h4 class="font-bold text-lg text-white mb-2">1. Calentamiento (5-10 min)</h4>
+                        <p class="text-sm">Similar a los días anteriores.</p>
+                    </div>
+
+                    <h4 class="font-bold text-xl text-white mb-3">2. Ejercicios Principales</h4>
+                    <p class="mb-4 text-sm">Realiza los ejercicios en formato de circuito. Completa un ejercicio tras otro con mínimo descanso. Descansa 90-120 segundos al final del circuito completo. Repite el circuito 3-4 veces.</p>
+                    
+                    <div class="exercise-card">
+                        <h5>Ejercicio 1: Sentadilla en Máquina Hack o Prensa de Piernas</h5>
+                        <p class="text-sm"><b>Repeticiones:</b> 15</p>
+                    </div>
+
+                    <div class="exercise-card">
+                        <h5>Ejercicio 2: Flexiones de Brazos (Push-ups) en el suelo o con rodillas apoyadas</h5>
+                        <p class="text-sm"><b>Repeticiones:</b> Máximas posibles (al fallo)</p>
+                    </div>
+
+                    <div class="exercise-card">
+                        <h5>Ejercicio 3: Hip Thrust con mancuerna sobre la pelvis</h5>
+                        <p class="text-sm mb-2"><b>Repeticiones:</b> 15-20</p>
+                        <p class="text-sm"><b>Técnica:</b> Apoya la parte superior de la espalda en una banca. Eleva la cadera contrayendo fuertemente los glúteos hasta que tu cuerpo forme una línea recta desde las rodillas hasta los hombros.</p>
+                    </div>
+
+                    <div class="exercise-card">
+                        <h5>Ejercicio 4: Remo en Máquina (Sentada, agarre neutro)</h5>
+                        <p class="text-sm"><b>Repeticiones:</b> 15</p>
+                    </div>
+
+                    <div class="exercise-card">
+                        <h5>Ejercicio 5: Balanceo con Mancuerna (Kettlebell Swing adaptado)</h5>
+                        <p class="text-sm mb-2"><b>Repeticiones:</b> 20</p>
+                        <p class="text-sm"><b>Técnica:</b> Usa el impulso de la cadera (no de los brazos) para elevar la mancuerna hasta la altura del pecho.</p>
+                    </div>
+
+                    <div class="bg-brand-light rounded-lg p-5 shadow-lg mb-6">
+                        <h4 class="font-bold text-lg text-white mb-2">3. Vuelta a la Calma (5 min)</h4>
+                        <p class="text-sm">Estiramientos generales de todo el cuerpo.</p>
+                    </div>
+
+                    <!-- Plan de Progresión -->
+                    <h3 class="font-bold text-2xl text-white mb-4">Plan de Progresión: La Clave del Éxito</h3>
+                    <p class="mb-4">El músculo crece cuando se le exige más de lo que está acostumbrado.</p>
+                    
+                    <div class="bg-brand-light rounded-lg p-6 shadow-lg mb-4">
+                        <h4 class="font-bold text-lg text-cyan-400 mb-2">Semanas 1-4</h4>
+                        <p class="text-sm">Enfócate en dominar la técnica de cada ejercicio. Utiliza un peso que te desafíe pero que te permita completar todas las repeticiones y series con buena forma. La última repetición de cada serie debe sentirse difícil, pero no imposible.</p>
+                    </div>
+
+                    <div class="bg-brand-light rounded-lg p-6 shadow-lg">
+                        <h4 class="font-bold text-lg text-cyan-400 mb-2">A partir de la Semana 5</h4>
+                        <p class="text-sm">Una vez que puedas completar el rango superior de repeticiones de cada ejercicio, es momento de aumentar el peso en la siguiente sesión (ej. subir a la siguiente mancuerna). Con el nuevo peso, probablemente vuelvas a hacer 8-9 repeticiones. Tu objetivo será volver a llegar a 12 con ese nuevo peso en las siguientes semanas. Este es el ciclo de la sobrecarga progresiva.</p>
+                    </div>
+                </section>
+
+                <!-- 8. Hábitos de Vida -->
+                <section id="habitos" class="mb-16">
+                    <div class="flex items-center gap-4 mb-6">
+                        <svg class="section-title-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" /></svg>
+                        <h2 class="text-3xl font-bold text-white">8. Intervención en Hábitos de Vida: El Fundamento de tu Bienestar</h2>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-brand-light rounded-lg p-6 shadow-lg">
+                            <h4 class="font-bold text-lg text-cyan-400 mb-2">Sueño</h4>
+                            <p>Continúa protegiendo tus 7 horas de sueño como tu activo más valioso. Son el pilar de tu recuperación.</p>
+                        </div>
+                        <div class="bg-brand-light rounded-lg p-6 shadow-lg">
+                            <h4 class="font-bold text-lg text-cyan-400 mb-2">Estrés</h4>
+                            <p>Sigue gestionando tu estrés de manera tan efectiva. Si en algún momento sientes que aumenta, actividades como las caminatas de descanso activo o 10 minutos de meditación pueden ser herramientas poderosas.</p>
+                        </div>
+                        <div class="bg-brand-light rounded-lg p-6 shadow-lg">
+                            <h4 class="font-bold text-lg text-cyan-400 mb-2">Alcohol y Tabaco</h4>
+                            <p>Tu abstinencia es una ventaja competitiva para tu salud. Mantenla como un no-negociable.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-brand-mid rounded-lg p-6 shadow-lg mt-6 border-l-4 border-purple-400">
+                        <p class="italic">Cada decisión que tomas, desde el vaso de agua que bebes hasta la hora en que te duermes, es un paso hacia una vida más larga, saludable y plena. Estás construyendo no solo un cuerpo más fuerte, sino un futuro con más energía, más capacidad y más vitalidad. Piensa en esto como un proyecto de longevidad activa.</p>
+                    </div>
+                </section>
+
+                <!-- 9. Seguimiento -->
+                <section id="seguimiento" class="mb-16">
+                    <div class="flex items-center gap-4 mb-6">
+                        <svg class="section-title-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg>
+                        <h2 class="text-3xl font-bold text-white">9. Seguimiento y Ajustes: Tu Progreso, Nuestra Prioridad</h2>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-brand-light rounded-lg p-6 shadow-lg">
+                            <h4 class="font-bold text-lg text-cyan-400 mb-2">Frecuencia de Controles</h4>
+                            <p>Realizaremos un control a las 6 semanas para reevaluar tu composición corporal, medidas y analizar tu progreso, luego a las 12 semanas.</p>
+                        </div>
+                        <div class="bg-brand-light rounded-lg p-6 shadow-lg">
+                            <h4 class="font-bold text-lg text-cyan-400 mb-2">Métodos de Evaluación</h4>
+                            <p>Usaremos fotos de progreso (frontales, de lado y de espalda, con la misma ropa y luz), medidas de circunferencia y el registro de tus pesos en el gimnasio. Estos datos objetivos nos dirán si el plan está funcionando o si necesita ajustes.</p>
+                        </div>
+                        <div class="bg-brand-light rounded-lg p-6 shadow-lg">
+                            <h4 class="font-bold text-lg text-cyan-400 mb-2">Manteniendo la Motivación</h4>
+                            <p>Celebra las pequeñas victorias: completar una semana perfecta de entrenamientos, levantar un peso nuevo, notar que la ropa te queda diferente. La motivación se alimenta de la acción y del progreso, no al revés.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 10. Resumen y Cierre -->
+                <section id="cierre" class="mb-16">
+                    <div class="flex items-center gap-4 mb-6">
+                        <svg class="section-title-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" /></svg>
+                        <h2 class="text-3xl font-bold text-white">10. Resumen de Metas y Cierre</h2>
+                    </div>
+                    
+                    <p class="mb-6">Estamos iniciando un camino transformador con metas claras y una estrategia sólida:</p>
+                    
+                    <div class="grid md:grid-cols-3 gap-4 mb-6">
+                        <div class="bg-brand-light rounded-lg p-6 shadow-lg text-center">
+                            <h4 class="font-bold text-lg text-cyan-400 mb-3">Nutrición</h4>
+                            <p class="text-sm">Un plan de 1550-1600 kcal, alto en proteínas (135 g), para nutrir tu músculo y promover la quema de grasa.</p>
+                        </div>
+                        <div class="bg-brand-light rounded-lg p-6 shadow-lg text-center">
+                            <h4 class="font-bold text-lg text-cyan-400 mb-3">Entrenamiento</h4>
+                            <p class="text-sm">Un programa de fuerza de 3 días semanales enfocado en la sobrecarga progresiva para esculpir tu físico.</p>
+                        </div>
+                        <div class="bg-brand-light rounded-lg p-6 shadow-lg text-center">
+                            <h4 class="font-bold text-lg text-cyan-400 mb-3">Hábitos</h4>
+                            <p class="text-sm">Potenciar tus excelentes hábitos de sueño y manejo del estrés.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-brand-mid rounded-lg p-8 shadow-lg border-l-4 border-cyan-400">
+                        <p class="text-lg mb-4">Andrea, tienes en tus manos un plan diseñado con precisión científica para ti. La confianza y el éxito vendrán de la ejecución diaria y la consistencia.</p>
+                        <p class="text-lg mb-4">Estoy aquí para guiarte, apoyarte y ajustar el rumbo cuando sea necesario. Confía en el proceso, confía en tu capacidad y prepárate para descubrir de lo que eres verdaderamente capaz.</p>
+                        <p class="text-2xl font-bold brand-gradient-text text-center mt-6">¡Vamos a empezar!</p>
+                        <p class="text-center mt-4 italic">Con todo mi apoyo profesional.</p>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Navegación activa
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        function setActiveLink() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', setActiveLink);
+        window.addEventListener('load', setActiveLink);
+
+        // Menú móvil
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('-translate-x-full');
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 1024) {
+                    mobileMenu.classList.add('-translate-x-full');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
